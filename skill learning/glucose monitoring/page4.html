@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health and Wellness</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://res.cloudinary.com/dy6kog5ja/image/upload/v1728363022/WhatsApp_Image_2024-10-06_at_21.29.08_df36e88b_p4kigd.jpg'); /* Set the background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+            display: flex;               /* Enable Flexbox */
+            justify-content: center;     /* Center horizontally */
+            align-items: center;         /* Center vertically */
+            height: 100vh;              /* Full viewport height */
+            margin: 0;                  /* Remove default margin */
+        }
+        .container {
+            max-width: 400px; /* Decreased width */
+            padding: 20px;
+            background-color: rgba(231, 241, 255, 0.8); /* Light blue background with some transparency */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333; /* Dark text color for contrast */
+        }
+        .total-hours {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .btn-submit {
+            margin-top: 20px; /* Space above the button */
+            width: 100%; /* Full width button */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Sleep Tracker</h1>
+
+    <!-- Sleep Section -->
+    <div class="form-group">
+        <label><b>Sleep:</b></label>
+        <label for="bed-time">Bed Time:</label>
+        <input type="time" class="form-control" id="bed-time" name="bed-time" onchange="calculateSleepHours()">
+        
+        <label for="wake-up-time" class="mt-3">Wake Up Time:</label>
+        <input type="time" class="form-control" id="wake-up-time" name="wake-up-time" onchange="calculateSleepHours()">
+        
+        <p class="total-hours" id="total-hours">Total Hours Sleep: --</p>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function calculateSleepHours() {
+        const bedTime = document.getElementById("bed-time").value;
+        const wakeUpTime = document.getElementById("wake-up-time").value;
+
+        if (bedTime && wakeUpTime) {
+            const bedDate = new Date(`1970-01-01T${bedTime}:00`);
+            const wakeDate = new Date(`1970-01-01T${wakeUpTime}:00`);
+
+            // If wake up time is earlier than bed time, it means it's the next day
+            if (wakeDate < bedDate) {
+                wakeDate.setDate(wakeDate.getDate() + 1);
+            }
+
+            const sleepDuration = (wakeDate - bedDate) / 1000 / 60 / 60; // in hours
+            document.getElementById("total-hours").innerText = `Total Hours Sleep: ${sleepDuration.toFixed(2)} hours`;
+        } else {
+            document.getElementById("total-hours").innerText = `Total Hours Sleep: --`; // Reset when inputs are missing
+        }
+    }
+</script>
+</body>
+</html>

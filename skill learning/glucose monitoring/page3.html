@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health and Wellness</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+		background-image: url('https://res.cloudinary.com/dy6kog5ja/image/upload/v1728363022/WhatsApp_Image_2024-10-06_at_21.29.08_df36e88b_p4kigd.jpg'); /* Set the background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; 
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: #e7f1ff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+        .total-hours {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        // Function to show/hide the time input question
+        function toggleTimeQuestionGym(isVisible) {
+            const gymTimeQuestion = document.getElementById("gym-time-question");
+            gymTimeQuestion.style.display = isVisible ? "block" : "none";
+        }
+
+        function toggleTimeQuestionPhysical(isVisible) {
+            const physicalTimeQuestion = document.getElementById("physical-time-question");
+            physicalTimeQuestion.style.display = isVisible ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Physical Activities</h1>
+<form id="activity-form">
+    <!-- Question about daily physical activity -->
+    <div class="form-group">
+        <label><b>Do you do any physical activities every day, like walking or running?</b></label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="physical-yes" name="physical-activity" value="yes" onclick="toggleTimeQuestionPhysical(true)">
+            <label class="form-check-label" for="physical-yes">Yes</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="physical-no" name="physical-activity" value="no" onclick="toggleTimeQuestionPhysical(false)">
+            <label class="form-check-label" for="physical-no">No</label>
+        </div>
+    </div>
+
+    <!-- Time spent on physical activities -->
+    <div class="form-group" id="physical-time-question" style="display: none;">
+        <label for="physical-time"><b>How much time do you spend on physical activities daily?</b></label>
+        <div class="d-flex">
+            <!-- Dropdown for hours -->
+            <select class="form-control" id="physical-hour">
+                <option value="">Select Hours</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <!-- Dropdown for minutes -->
+            <select class="form-control ml-2" id="physical-minute">
+                <option value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
+                <option value="47">47</option>
+                <option value="48">48</option>
+                <option value="49">49</option>
+                <option value="50">50</option>
+                <option value="51">51</option>
+                <option value="52">52</option>
+                <option value="53">53</option>
+                <option value="54">54</option>
+                <option value="55">55</option>
+                <option value="56">56</option>
+                <option value="57">57</option>
+                <option value="58">58</option>
+                <option value="59">59</option>
+            </select>
+            <!-- Dropdown for AM/PM -->
+            <select class="form-control ml-2" id="physical-am-pm">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Question about gym workouts -->
+    <div class="form-group">
+        <label><b>Do you do any gym workouts?</b></label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="gym-yes" name="gym-activity" value="yes" onclick="toggleTimeQuestionGym(true)">
+            <label class="form-check-label" for="gym-yes">Yes</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="gym-no" name="gym-activity" value="no" onclick="toggleTimeQuestionGym(false)">
+            <label class="form-check-label" for="gym-no">No</label>
+        </div>
+    </div>
+
+    <!-- Time spent on gym workouts -->
+    <div class="form-group" id="gym-time-question" style="display: none;">
+        <label for="gym-time"><b>How much time do you spend on gym workouts daily?</b></label>
+        <div class="d-flex">
+            <!-- Dropdown for hours -->
+            <select class="form-control" id="gym-hour">
+                <option value="">Select Hours</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <!-- Dropdown for minutes -->
+            <select class="form-control ml-2" id="gym-minute">
+                <option value="00">00</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+                <option value="32">32</option>
+                <option value="33">33</option>
+                <option value="34">34</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
+                <option value="47">47</option>
+                <option value="48">48</option>
+                <option value="49">49</option>
+                <option value="50">50</option>
+                <option value="51">51</option>
+                <option value="52">52</option>
+                <option value="53">53</option>
+                <option value="54">54</option>
+                <option value="55">55</option>
+                <option value="56">56</option>
+                <option value="57">57</option>
+                <option value="58">58</option>
+                <option value="59">59</option>
+            </select>
+            <!-- Dropdown for AM/PM -->
+            <select class="form-control ml-2" id="gym-am-pm">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+            </select>
+        </div>
+    </div>
+
+       <button type="submit" class="btn btn-primary btn-block">Next</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS and dependencies (optional) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.getElementById('activity-form').onsubmit = function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        // Redirect to the local HTML file
+        window.location.href = "file:///E:/Swagy/page4.html";
+    };
+</script>
+
+</body>
+</html>
